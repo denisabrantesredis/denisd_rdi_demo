@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Riho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Riho admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="https://redis.io/wp-content/themes/wpx/assets/images/favicons/favicon-32x32.png?v=1720078588" type="image/x-icon">
+    <link rel="shortcut icon" href="https://redis.io/wp-content/themes/wpx/assets/images/favicons/favicon-32x32.png?v=1720078588" type="image/x-icon">
+    <title>RedisStore - Setup</title>
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+    <!-- Plugins css start-->
+    <!-- Plugins css Ends-->
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/redis.css">
+  </head>
+  <body>
+
+    <div class="container-fluid p-0">
+      <div class="row m-0">
+        <div class="col-12 p-0">    
+            <div class="page-body" style="padding:50px;">
+                
+                <!-- Page Header-->
+                <div class="container-fluid">
+                  <div class="page-title">
+                    <div class="row">
+                      <div class="col-6">
+                        <h4>
+                           RDI Demo - E-Commerce</h4>
+                      </div>
+                      <div class="col-6">&nbsp;</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Postgres Database Connection-->
+                <div class="row" style="margin: 20px 0px;">
+                  <div class="welcome-content d-xl-block d-none">
+                    <span class="text-truncate col-12">
+                      Setup your Postgres database before you can run the demo.
+                    </span>
+                  </div>
+                </div>
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="form theme-form">
+
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <div class="mb-4">
+                                  <label>Postgres Host</label>
+                                  <input class="form-control" type="text" id="pg_host" name="pg_host" value="127.0.0.1">
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="mb-4">
+                                  <label>Postgres Port</label>
+                                  <input class="form-control" type="text" id="pg_port" name="pg_port" value="5432">
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="mb-4">
+                                  <label>Postgres DB</label>
+                                  <input class="form-control" type="text" id="pg_db" name="pg_db" value="ecommerce">
+                                </div>
+                              </div>                              
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <div class="mb-4">
+                                  <label>Postgres User</label>
+                                  <input class="form-control" type="text" id="pg_user" name="pg_user" value="postgres">
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="mb-4">
+                                  <label>Postgres Password</label>
+                                  <input class="form-control" type="password" id="pg_pass" name="pg_pass" placeholder="leave empty for no password">
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <div class="mb-4">
+                                  <div class="form-group">
+                                    <button type="button" class="btn btn-primary ml-2" onclick="pgtestlogin()">Test Connection</button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="mb-4">
+                                  <div class="form-group">
+                                    <button type="button" class="btn btn-success ml-2" onclick="pgsaveconfig()">Save Configuration</button>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-sm-3">
+                                <div class="mb-3">
+                                  <div class="form-group col-sm-1">
+                                    <div style="margin-top: 3px;">
+                                        <span id="pgconnsuccess" class="badge badge-success" style="display:none;">Connection Successful</span>
+                                        <span id="pgconnfail" class="badge badge-danger" style="display:none;">Connection Failed</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>                           
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- Redis Database Connection-->
+                <div class="row" style="margin: 20px 0px;">
+                  <div class="welcome-content d-xl-block d-none">
+                    <span class="text-truncate col-12">
+                      Setup your Redis database before you can run the demo.
+                    </span>
+                  </div>
+                </div>
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="form theme-form">
+
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <div class="mb-4">
+                                  <label>Redis Host</label>
+                                  <input class="form-control" type="text" id="redis_host" name="redis_host" value="127.0.0.1">
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="mb-4">
+                                  <label>Redis Port</label>
+                                  <input class="form-control" type="text" id="redis_port" name="redis_port" value="6379">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <div class="mb-4">
+                                  <label>Redis User</label>
+                                  <input class="form-control" type="text" id="redis_user" name="redis_user" placeholder="leave empty for default">
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="mb-4">
+                                  <label>Redis Password</label>
+                                  <input class="form-control" type="password" id="redis_pass" name="redis_pass" placeholder="leave empty for no password">
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <div class="mb-4">
+                                  <div class="form-group">
+                                    <button type="button" class="btn btn-primary ml-2" onclick="testlogin()">Test Connection</button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-3">
+                                <div class="mb-4">
+                                  <div class="form-group">
+                                    <button type="button" class="btn btn-success ml-2" onclick="saveconfig()">Save Config</button>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-sm-3">
+                                <div class="mb-4">
+                                  <div class="form-group col-sm-1">
+                                    <div style="margin-top: 3px;">
+                                        <span id="connsuccess" class="badge badge-success" style="display:none;">Connection Successful</span>
+                                        <span id="connfail" class="badge badge-danger" style="display:none;">Connection Failed</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-3">
+                                <div class="mb-4">
+                                  <div class="form-group col-sm-8">
+                                    <div style="margin-top: 3px;">
+                                      <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#purgeModal">Flush DB</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>                              
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Generate Dataset -->
+                <div class="row" style="margin: 20px 0px;">
+                  <div class="welcome-content d-xl-block d-none">
+                    <span class="text-truncate col-12">
+                      Generate the Product and User Profile datasets
+                    </span>
+                  </div>
+                </div>
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="form theme-form">
+                            <!-- Keys Counter -->
+                            <div class="row">
+                              <div class="col-xl-3 col-sm-6"> 
+                                <div class="card o-hidden small-widget">
+                                  <div class="card-body total-project border-b-primary border-2">
+                                    <span class="f-light f-w-500 f-14">Redis Keys</span>
+                                    <div class="project-details">
+                                      <div class="project-counter">
+                                        <h2 class="f-w-600" id="redis-key-count">0</h2>
+                                      </div>
+                                      <div class="product-sub bg-primary-light"> 
+                                        <svg class="invoice-icon">
+                                          <use href="../assets/svg/icon-sprite.svg#clock"></use>
+                                        </svg>
+                                      </div>
+                                    </div>
+                                    <ul class="bubbles">
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-3 col-sm-6">
+                                <div class="card o-hidden small-widget">
+                                  <div class="card-body total-Progress border-b-warning border-2"> 
+                                    <span class="f-light f-w-500 f-14">Postgres Records</span>
+                                    <div class="project-details">
+                                      <div class="project-counter">
+                                        <h2 class="f-w-600" id="pg-key-count">0 </h2>
+                                      </div>
+                                      <div class="product-sub bg-warning-light"> 
+                                        <svg class="invoice-icon">
+                                          <use href="../assets/svg/icon-sprite.svg#spam"></use>
+                                        </svg>
+                                      </div>
+                                    </div>
+                                    <ul class="bubbles"> 
+                                      <li class="bubble"></li>
+                                      <li class="bubble"> </li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                      <li class="bubble"></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <div class="mb-4">
+                                  <div class="form-group">
+                                    <button type="button" class="btn btn-primary ml-2" onclick="createdataset()" data-bs-toggle="modal" data-bs-target="#createDSModal">
+                                      Create Redis Data
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-3">
+                                <div class="mb-4">
+                                  <div class="form-group col-sm-1">
+                                    <div style="margin-top: 3px;">
+                                        <span id="dssuccess" class="badge badge-success" style="display:none;">Success!</span>
+                                        <span id="dsfail" class="badge badge-danger" style="display:none;">Failed!</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-sm-3">
+                                <div class="mb-4">
+                                  <div class="form-group">
+                                    <button type="button" class="btn btn-primary ml-2" onclick="createpgdataset()" data-bs-toggle="modal" data-bs-target="#createPGDSModal">
+                                      Create PG Data
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-3">
+                                <div class="mb-4">
+                                  <div class="form-group col-sm-1">
+                                    <div style="margin-top: 3px;">
+                                        <span id="pgdssuccess" class="badge badge-success" style="display:none;">Success!</span>
+                                        <span id="pgdsfail" class="badge badge-danger" style="display:none;">Failed!</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+     
+
+                <!-- Return to Store -->
+                <div class="row" style="margin: 20px 0px;">
+                  <div class="welcome-content d-xl-block d-none">
+                    <span class="text-truncate col-4">
+                      Make sure to save your configuration before returning to store!
+                    </span>
+                  </div>
+                </div>
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="form theme-form">
+                            <div class="row">
+                              <div class="col-sm-4" style="margin-top: 25px;">
+                                <div class="mb-4">
+                                  <div class="form-group">
+                                    <h3 class="badge-heading">
+                                      <a class="badge badge-pill badge-success" href="/">Return to Store</a>
+                                    </h3>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-4" style="margin-top: 25px;">
+                                <div class="mb-4">
+                                  <div class="form-group">
+                                    <h3 class="badge-heading">
+                                      <a class="badge badge-pill badge-primary" href="/postgres">Go To Postgres Admin</a>
+                                    </h3>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>     
+
+                <!--Flush DB modal-->
+                <div class="modal fade" id="purgeModal" tabindex="-1" aria-labelledby="purgeModal" style="display: none;" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body"> 
+                        <div class="modal-toggle-wrapper">  
+                          <ul class="modal-img">
+                            <li> <img src="../assets/images/gif/danger.gif" alt="error"></li>
+                          </ul>
+                          <h4 class="text-center pb-2">Flush Database?</h4>
+                          <p class="text-center">This action will delete all data and indexes in the database; <b>not just the demo stuff</b>. Are you sure you want to continue?</p>
+                          <div style="display:flex;">
+                            <button class="btn btn-primary d-flex m-auto" type="button" data-bs-dismiss="modal">Cancel</button>
+                            <button class="btn btn-danger d-flex m-auto" type="button" data-bs-dismiss="modal" onclick="purgedb()">Flush Database</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Create Dataset modal-->
+                <div class="modal fade" id="createDSModal" tabindex="-1" aria-labelledby="createDSModal" aria-hidden="true" style="display: none;">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body"> 
+                        <div class="modal-toggle-wrapper">  
+                          <ul class="modal-img">
+                            <li> <img src="../assets/images/gif/loading.gif" width="80px" height="60px" alt="Creating Dataset"></li>
+                          </ul>
+                          <h4 class="text-center pb-2">Creating Redis Dataset</h4>
+                          <p class="text-center">Please Wait. This panel will close automatically when the dataset is ready.</p>
+                          <button class="btn btn-secondary d-flex m-auto" type="button" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal fade" id="createPGDSModal" tabindex="-1" aria-labelledby="createPGDSModal" aria-hidden="true" style="display: none;">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body"> 
+                        <div class="modal-toggle-wrapper">  
+                          <ul class="modal-img">
+                            <li> <img src="../assets/images/gif/loading.gif" width="80px" height="60px" alt="Creating Dataset"></li>
+                          </ul>
+                          <h4 class="text-center pb-2">Creating Postgres Dataset</h4>
+                          <p class="text-center">Please Wait. This panel will close automatically when the dataset is ready.</p>
+                          <button class="btn btn-secondary d-flex m-auto" type="button" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>                
+
+                <!--Save Config modal-->
+                <div class="modal fade" id="saveConfigModal" tabindex="-1" aria-labelledby="saveConfigModal" aria-hidden="true" style="display: none;">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="col-xl-12">
+                        <div class="card social-profile mb-0">
+                          <div class="card-body">
+                            <div class="social-img-wrap"> 
+                              <div class="social-img">
+                                <img src="../assets/images/customizer/redis.png" class="chatbot-icon" alt="Redis Logo"/>
+                              </div>
+                            </div>
+                            <div class="social-details">
+                              <h5 class="mb-1">Save Config File</h5>
+                              <span class="f-light">config file saved successfully!</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>                
+
+
+            </div>
+        </div>
+
+        <!-- footer start-->
+        <footer class="footer" style="margin-left:50px !important;">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12 footer-copyright text-center">
+                <p class="mb-0">Copyright 2025 © RedisStore  </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+         
+      </div>
+    </div>
+
+    <!-- latest jquery-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <!-- Bootstrap js-->
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- feather icon js-->
+    <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- scrollbar js-->
+    <!-- Sidebar jquery-->
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/popover-custom.js"></script>
+    <!-- Plugins JS start-->
+    <!-- calendar js-->
+    <!-- Plugins JS Ends-->
+    <!-- Theme js-->
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+
+
+<!-- jQuery  -->
+<script src="../assets/js/jquery.min.js"></script>
+
+  <script type="text/javascript">
+
+      var hostname = "{{hostname}}";
+      var port = "{{port}}";
+      var debug = "{{debug}}"
+
+      function set_config_data(config_data) {
+        $("#redis_host").val(config_data['host']);
+        $("#redis_port").val(config_data['port']);
+        $("#redis_user").val(config_data['user']);
+        $("#redis_pass").val(config_data['password']);
+
+        $("#pg_host").val(config_data['pg_host']);
+        $("#pg_port").val(config_data['pg_port']);
+        $("#pg_db").val(config_data['pg_db']);
+        $("#pg_user").val(config_data['pg_user']);
+        $("#pg_pass").val(config_data['pg_pass']);    
+      }
+
+      function get_backend_config() {
+        if(debug) {console.log("--> [get_backend_config] Retrieving Backend Config");}
+        var serverurl = "http://{{hostname}}:{{port}}/dbconfig"
+
+        let request = new XMLHttpRequest();
+        request.open("GET", serverurl);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.send();
+        request.onload = () => {
+            var responseMsg = request.response;
+            if(debug) {console.log("--> [get_backend_config] Backend Config: " + responseMsg);}
+            config_data = JSON.parse(request.response);
+            set_config_data(config_data);
+        }
+      }
+
+      function testlogin() {
+          if(debug) {console.log("--> [testlogin] Testing login to Redis instance");}
+          $("#connsuccess").hide();
+          $("#connfail").hide();
+          var serverurl = "http://{{hostname}}:{{port}}/testconn"
+          var redis_host = $("#redis_host").val();
+          var redis_port = $("#redis_port").val();
+          var redis_user = $("#redis_user").val();
+          var redis_pass = $("#redis_pass").val();
+          var api_key = $("#api_key").val();
+          var data = 'redis_host=' + redis_host + '&redis_port=' + redis_port + '&redis_user=' + redis_user + '&redis_pass=' + redis_pass + '&api_key=' + api_key;
+
+          let request = new XMLHttpRequest();
+          request.open("POST", serverurl);
+          request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          request.send(data);
+          request.onload = () => {
+              var responseMsg = request.response;
+              if (responseMsg == "success") {
+                  $("#connsuccess").show();
+              }
+              else {
+                  $("#connfail").html(responseMsg);
+                  $("#connfail").show();
+              }
+          }
+      }
+
+      function pgtestlogin() {
+          if(debug) {console.log("--> [pgtestlogin] Testing login to Postgres");}
+          $("#pgconnsuccess").hide();
+          $("#pgconnfail").hide();
+          var serverurl = "http://{{hostname}}:{{port}}/testpgconn"
+          var pg_host = $("#pg_host").val();
+          var pg_port = $("#pg_port").val();
+          var pg_db = $("#pg_db").val();
+          var pg_user = $("#pg_user").val();
+          var pg_pass = $("#pg_pass").val();
+          var data = 'pg_host=' + pg_host + '&pg_port=' + pg_port + '&pg_db=' + pg_db + '&pg_user=' + pg_user + '&pg_pass=' + pg_pass;
+
+          let request = new XMLHttpRequest();
+          request.open("POST", serverurl);
+          request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          request.send(data);
+          request.onload = () => {
+              var responseMsg = request.response;
+              if (responseMsg == "success") {
+                  $("#pgconnsuccess").show();
+              }
+              else {
+                  $("#pgconnfail").html(responseMsg);
+                  $("#pgconnfail").show();
+              }
+          }
+      }
+
+      function refresh_key_counters(key_data, type) {
+        if (type == "redis" || type == "both") {
+          $("#redis-key-count").html(key_data['redis']);
+        }
+        if (type == "pg" || type == "both") {
+          if(debug) {console.log("--> [refresh_key_counters] Updating PG counter to " + key_data['pg']);}
+          $("#pg-key-count").html(key_data['pg']);
+        }
+      }
+
+      function get_keys_count() {
+        if(debug) {console.log("--> [get_keys_count] Getting Key Count");}
+        var serverurl = "http://{{hostname}}:{{port}}/keycount"
+
+        let request = new XMLHttpRequest();
+        request.open("GET", serverurl);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.send();
+        request.onload = () => {
+            var responseMsg = request.response;
+            if(debug) {console.log("--> [get_keys_count] Key Counts: " + responseMsg);}
+            key_data = JSON.parse(request.response);
+            refresh_key_counters(key_data, "both");
+        }          
+      }
+
+      function createdataset() {
+        if(debug) {console.log("--> [createdataset] Creating Dataset");}
+        var serverurl = "http://{{hostname}}:{{port}}/createdataset"
+
+        let request = new XMLHttpRequest();
+        request.open("POST", serverurl);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.send();
+        request.onload = () => {
+              $('#createDSModal').modal('hide');
+              var responseMsg = request.response;
+              var responseStatus = JSON.parse(responseMsg)
+              if (responseStatus['prod_result'] == "success") {
+                  $("#dssuccess").show();
+              }
+              else {
+                  $("#dsfail").html(responseMsg);
+                  $("#dsfail").show();
+              }
+              if(debug) {console.log("--> [createdataset] Response: " + JSON.stringify(responseStatus));}
+              var key_data = {'redis' : responseStatus['prod_keys']};
+              refresh_key_counters(key_data, "redis");
+          }         
+      }
+
+      function createpgdataset() {
+        if(debug) {console.log("--> [createpgdataset] Creating PG Dataset");}
+        var serverurl = "http://{{hostname}}:{{port}}/createpgdataset"
+
+        let request = new XMLHttpRequest();
+        request.open("POST", serverurl);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.send();
+        request.onload = () => {
+              $('#createPGDSModal').modal('hide');
+              var responseMsg = request.response;
+              if(debug) {console.log("--> [createpgdataset] Create PG Dataset Response: " + responseMsg);}
+              var responseStatus = JSON.parse(responseMsg)
+              if (responseStatus['result'] == "success") {
+                  $("#pgdssuccess").show();
+              }
+              else {
+                  $("#pgdsfail").html(responseMsg);
+                  $("#pgdsfail").show();
+              }
+              var key_data = {'pg' : responseStatus['keys']};
+              refresh_key_counters(key_data, "pg");
+          }         
+      }
+
+      function purgedb() {
+          if(debug) {console.log("--> [purgedb] Purging DB");}
+          var serverurl = "http://{{hostname}}:{{port}}/flushdb"
+
+          let request = new XMLHttpRequest();
+          request.open("POST", serverurl);
+          request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          request.send();
+          request.onload = () => {
+              $("#purgeModal").modal('hide');
+              get_keys_count();
+            }         
+      }
+      
+      function saveconfig() {
+        if (debug) {console.log("--> [saveconfig] Saving Config File");}
+          var serverurl = "http://{{hostname}}:{{port}}/saveconfig"
+          var redis_host = $("#redis_host").val();
+          var redis_port = $("#redis_port").val();
+          var redis_user = $("#redis_user").val();
+          var redis_pass = $("#redis_pass").val();
+          var api_key = $("#api_key").val();
+          var data = 'redis_host=' + redis_host + '&redis_port=' + redis_port + '&redis_user=' + redis_user + '&redis_pass=' + redis_pass + '&api_key=' + api_key;
+
+          let request = new XMLHttpRequest();
+          request.open("POST", serverurl);
+          request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          request.send(data);
+          request.onload = () => {
+              var responseMsg = request.response;
+              if (responseMsg == "success") {
+                  $("#saveConfigModal").modal("show");
+              }
+          }
+      }
+
+      function pgsaveconfig() {
+        if (debug) {console.log("--> [pgsaveconfig] Saving Config File");}
+          var serverurl = "http://{{hostname}}:{{port}}/savepgconfig"
+          var pg_host = $("#pg_host").val();
+          var pg_port = $("#pg_port").val();
+          var pg_db = $("#pg_db").val();
+          var pg_user = $("#pg_user").val();
+          var pg_pass = $("#pg_pass").val();
+          var data = 'pg_host=' + pg_host + '&pg_port=' + pg_port + '&pg_db=' + pg_db + '&pg_user=' + pg_user + '&pg_pass=' + pg_pass;
+
+          let request = new XMLHttpRequest();
+          request.open("POST", serverurl);
+          request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          request.send(data);
+          request.onload = () => {
+              var responseMsg = request.response;
+              if (responseMsg == "success") {
+                  $("#saveConfigModal").modal("show");
+              }
+          }
+      }
+
+      $(document).ready(function() {
+        get_backend_config();
+        get_keys_count();
+    });
+
+  </script>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Riho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Riho admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="https://redis.io/wp-content/themes/wpx/assets/images/favicons/favicon-32x32.png?v=1720078588" type="image/x-icon">
+    <link rel="shortcut icon" href="https://redis.io/wp-content/themes/wpx/assets/images/favicons/favicon-32x32.png?v=1720078588" type="image/x-icon">
+    <title>RedisShop - Postgres Admin</title>
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+    <!-- Plugins css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/select2.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/owlcarousel.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/range-slider.css">
+    <!-- Plugins css Ends-->
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <!-- Redis css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/redis.css">    
+  </head>
+  <body> 
+    <!-- loader starts-->
+    <div class="loader-wrapper">
+      <div class="loader"> 
+        <div class="loader4"></div>
+      </div>
+    </div>
+    <!-- loader ends-->
+    <!-- tap on top starts-->
+    <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+    <!-- tap on tap ends-->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+      <!-- Page Header Start-->
+      <div class="page-header" style="width:100% !important;">
+        <div class="header-wrapper row m-0">
+          <form class="form-inline search-full col" action="#" method="get">
+            <div class="form-group w-100">
+              <div class="Typeahead Typeahead--twitterUsers">
+                <div class="u-posRelative"> 
+                  <input class="demo-input Typeahead-input form-control-plaintext w-100" type="text" placeholder="Search Riho .." name="q" title="" autofocus>
+                  <div class="spinner-border Typeahead-spinner" role="status"><span class="sr-only">Loading... </span></div><i class="close-search" data-feather="x"></i>
+                </div>
+                <div class="Typeahead-menu"> </div>
+              </div>
+            </div>
+          </form>
+          <div class="header-logo-wrapper col-auto p-0">  
+            <div class="logo-wrapper"> 
+              <a href="index.html">
+                <img class="img-fluid for-light" src="../assets/images/logo/logo_dark.png" alt="logo-light">
+                <img class="img-fluid for-dark" src="../assets/images/logo/logo.png" alt="logo-dark">
+              </a>
+            </div>
+            <div class="toggle-sidebar"> 
+              <img class="redis-logo" src="../assets/images/logo/logo_pg.png"> 
+            </div>
+          </div>
+          <div class="left-header col-xxl-5 col-xl-6 col-lg-5 col-md-4 col-sm-3 p-0">
+            <div> <a class="toggle-sidebar" href="#"> <i class="iconly-Category icli"> </i></a>
+              <div class="d-flex align-items-center gap-2 ">
+                <h4 class="f-w-600" id="div-user-welcome">Welcome, Postgres Admin</h4>
+              </div>
+            </div>
+            <div class="welcome-content d-xl-block d-none">
+              <div class="text-truncate col-12" id="div-user-last-access">&nbsp;</div>
+            </div>
+          </div>
+          <!-- Top Bar Links -->
+          <div class="nav-right col-xxl-7 col-xl-6 col-md-7 col-8 pull-right right-header p-0 ms-auto">
+            <ul class="nav-menus">              
+              <!-- Wish List, Reviews, Returns -->
+              <li class="onhover-dropdown">
+                <svg>
+                  <use href="../assets/svg/icon-sprite.svg#orders"></use>
+                </svg>
+                <div class="onhover-show-div bookmark-flip">
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="front">
+                        <h6 class="f-18 mb-0 dropdown-title">Your Orders</h6>
+                        <ul class="bookmark-dropdown">
+                          <li>
+                            <div class="row">
+                              <div class="col-4 text-center">
+                                <div class="bookmark-content">
+                                  <div class="bookmark-icon">
+                                    <div class="badge rounded-pill badge-secondary review-counter" id="div-review-total-icon" style="display:none;">0 </div>
+                                    <i data-feather="thumbs-up"></i>
+                                  </div>
+                                  <span>Write a Review</span>
+                                </div>
+                              </div>
+                              <div class="col-4 text-center">
+                                <div class="bookmark-content">
+                                  <div class="bookmark-icon"><i data-feather="gift"></i></div>
+                                  <span>Special Offers</span>
+                                </div>
+                              </div>
+                              <div class="col-4 text-center">
+                                <div class="bookmark-content">
+                                  <div class="bookmark-icon"><i data-feather="rotate-ccw"></i></div>
+                                  <span>Returns</span>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="text-center">
+                            <a class="flip-btn f-w-700" id="flip-btn" href="javascript:void(0)" id="a-user-order-label">Login to See Order History</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="back">
+                        <ul>
+                          <li>
+                            <div class="bookmark-dropdown flip-back-content">
+                              <input type="text" placeholder="search...">
+                            </div>
+                          </li>
+                          <li><a class="f-w-700 d-block flip-back" id="flip-back" href="javascript:void(0)">Back</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <!-- RedisShop Link -->
+              <li class="onhover-dropdown notification-down">
+                <div class="notification-dropdown"> 
+                  <img class="redis-logo" src="../assets/images/logo/logo_round.png"> 
+                </div>
+                <div class="onhover-show-div notification-dropdown"> 
+                  <div class="card mb-0"> 
+                    <div class="card-header">
+                      <div class="common-space"> 
+                        <h4 class="text-start f-w-600">
+                          <a href="/">Go to RedisStore</a>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <!-- Profile -->
+              <li class="profile-nav onhover-dropdown"> 
+                <div class="media profile-media">
+                  <img class="b-r-10" src="../assets/images/dashboard/6840614863.png" alt="" id="img-user-picture">
+                  <div class="media-body d-xxl-block d-none box-col-none">
+                    <div class="d-flex align-items-center gap-2"> 
+                      <span id="div-user-name">Visitor </span>
+                      <i class="middle fa fa-angle-down"> </i>
+                    </div>
+                    <p class="mb-0 font-roboto" id="div-user-member-since">Last Visit: 01/01</p>
+                  </div>
+                </div>
+                <ul class="profile-dropdown onhover-show-div" id="user-dropdown">
+                  <li><a href="user-profile.html"><i data-feather="user"></i><span>My Account</span></a></li>
+                  <li><a href="letter-box.html"><i data-feather="mail"></i><span>Messages</span></a></li>
+                  <li> <a href="edit-profile.html"> <i data-feather="settings"></i><span>Preferences</span></a></li>
+                  <li><a class="btn btn-pill btn-outline-primary btn-sm" href="/logout">Log Out</a></li>
+                </ul>
+              </li>
+              <!-- Dark / Lite Mode -->
+              <li> 
+                <div class="mode"><i class="moon" data-feather="moon"> </i></div>
+              </li>              
+            </ul>
+          </div>
+          <script class="result-template" type="text/x-handlebars-template">
+            <div class="ProfileCard u-cf">                        
+            <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
+            <div class="ProfileCard-details"> 
+            <div class="ProfileCard-realName">{{name}}</div>
+            </div> 
+            </div>
+          </script>
+          <script class="empty-template" type="text/x-handlebars-template"><div class="EmptyMessage">Your search turned up 0 results. This most likely means the backend is down, yikes!</div></script>
+        </div>
+      </div>
+      <!-- Page Header Ends-->
+      <!-- Page Body Start-->
+      <div class="page-body-wrapper">
+        <div class="page-body">
+          <!-- Top Level Header-->
+          <div class="container-fluid">
+            <div class="page-title">
+              <div class="row">
+                <div class="col-6">
+                  <h4 id="postgres-key-count">Postgres</h4>
+                </div>
+                <div class="col-6">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">
+                        <svg class="stroke-icon">
+                          <use href="../assets/svg/icon-sprite.svg#stroke-home"></use>
+                        </svg></a></li>
+                    <li class="breadcrumb-item active">Postgres Admin</li>
+                  </ol>
+                </div>
+              </div>
+              <div class="row" style="margin-top:10px;">
+                <h6>Search for a Product to edit its attributes.</h6>
+              </div>
+            </div>
+          </div>
+          <!-- Filter and Product counter-->
+          <div class="container-fluid product-wrapper">
+            <div class="product-grid">
+              <div class="feature-products">                
+                <div class="row">
+                  <!-- Search Bar -->
+                  <div class="col-md-12 col-sm-12" style="margin-top:10px;">
+                    <form>
+                      <div class="form-group m-0">
+                        <input class="form-control" type="search" id="search-input" name="search-input" placeholder="Search.." data-original-title="" title=""/>
+                        <i class="fa fa-search"></i>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrapper-grid" id="product-grid-div">
+               No products found :(
+              </div>
+            </div>
+          </div>
+          <!-- Container-fluid Ends-->
+        </div>
+        
+        <!-- footer start-->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12 footer-copyright text-center">
+                <p class="mb-0">Copyright 2025 © Redis Store  </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- latest jquery-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <!-- Bootstrap js-->
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- feather icon js-->
+    <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- Sidebar jquery-->
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/owlcarousel/owl.carousel.js"></script>
+    <script src="../assets/js/script.js"></script>
+
+    <!-- Redis autocomplete-->
+    <script src="../assets/js/redis_pg_autocomplete.js"></script>
+
+    <script type="text/javascript">
+      var hostname = "{{hostname}}";
+      var port = "{{port}}";
+      var debug = "{{debug}}";
+
+      function set_session_data(session_info) {
+        if (debug) {console.log("--> [set_session_data] Session Data: " + session_info);}
+        
+        // If user_id == session_id, user is not authenticated
+        session_data = JSON.parse(session_info);
+
+        if (session_data.user_id == session_data.session_id) {
+          // User Name
+          $("#div-user-name").html("Visitor")
+
+          var short_session_id = session_data.session_id.substring(0, 8);
+          // User Login Link
+          var htmlcontent = "";
+          htmlcontent += "<ul class='profile-dropdown onhover-show-div' id='user-dropdown'> \n";
+          htmlcontent += "  <li><i class='fa fa-code'></i><span style='font-size:12px;>'>&nbsp;" + short_session_id + "</span></a></li> \n";  
+          htmlcontent += "  <li><a href='/login'><i data-feather='log-in'></i><span>Login</span></a></li> \n";
+          htmlcontent += "  <li><a href='/create_user'><i data-feather='user-plus'></i><span>Create User</span></a></li> \n";
+          htmlcontent += "</ul> \n";
+          $("#user-dropdown").replaceWith(htmlcontent);
+
+          // User Profile Picture
+          $("#img-user-picture").attr("src", "../assets/images/user/user.png");
+
+          // Last Visit Date
+          var date = new Date(session_data['last_login_ts']);
+          var last_visit = date.toLocaleDateString();
+          $("#div-user-member-since").html("Last Visit: " + last_visit);
+
+        }
+        else {
+          if (debug) {console.log("--> [set_session_data] Populating fields for authenticated user");}
+          
+          // set User Profile data
+          set_user_profile_data(session_data);
+        }
+
+      }
+
+      async function get_user_session() {
+          if (debug) {console.log("--> [get_user_session] Loading User Session");}
+          var serverurl = "http://{{hostname}}:{{port}}/session"
+          var session_data = "";
+          let request = new XMLHttpRequest();
+          request.open("GET", serverurl);
+          request.setRequestHeader("Content-type", "application/json");
+          request.send();
+          request.onload = () => {
+              var responseStatus = request.status;
+              if (responseStatus == 200) { 
+                //Update content
+                session_data = request.response;
+                if (debug) {console.log("--> [get_user_session] Session Data: " + session_data);}
+                set_session_data(session_data);
+              }
+          }
+          return session_data;
+      }
+
+      function render_pg_product_list(prod_list) {
+        var htmlresponse = ""
+        htmlresponse += "<div class='row'> \n";
+        if (debug) {console.log("--> [render_pg_product_list] Total Products retrieved: " + prod_list.length);}
+
+        // Check if Product List is Empty
+        if (prod_list.length > 0) {
+
+            htmlresponse += " <div class='col-xl12 box-col-12'> \n";
+            htmlresponse += "   <div class='md-sidebar'> \n";
+            htmlresponse += "     <div class='md-sidebar job-left-aside custom-scrollbar'> \n";
+            htmlresponse += "       <div class='email-left-aside'> \n";
+            htmlresponse += "         <div class='card'> \n";
+            htmlresponse += "           <div class='card-body' style='display:inline-flex;'> \n";
+            htmlresponse += "             <div class='col-xxl-4 col-md-4 col-ed-4'> \n";
+            for (let i = 0; i < prod_list.length; i++) {
+                product = prod_list[i];
+                htmlresponse += "           <div class='col-xxl-12 col-md-12 col-ed-12'> \n";
+                htmlresponse += "             <div class='card card-with-border bookmark-card o-hidden'> \n";
+                htmlresponse += "               <div class='details-website pg-list-item'> \n";
+                htmlresponse += "                 <a href='#' onClick=\"load_product_panel('" + product['id'] + "')\"> \n";
+                htmlresponse += "                   <img class='img-pg-list' src='" + product['image_360x480'] + "' alt=''> \n";
+                htmlresponse += "                   <div class='rating'> " + product['rating_html'] + " \n";
+                htmlresponse += "                   </div> \n";
+                htmlresponse += "                   <div class='desciption-data'> \n";
+                htmlresponse += "                     <div class='title-bookmark'> \n";
+                htmlresponse += "                       <h6 class='title_0 f-w-500'>" + product['productdisplayname'] + "</h6> \n";
+                htmlresponse += "                       <div class='content-general'> \n";
+                htmlresponse += "                         <div class='product-price'>$" + product['discountedprice'] + " \n";
+                htmlresponse += "                           <del>$" + product['price'] + "    </del> \n";
+                htmlresponse += "                         </div> \n";
+                htmlresponse += "                       </div> \n";
+                htmlresponse += "                     </div> \n";
+                htmlresponse += "                   </div> \n";
+                htmlresponse += "                 </a> \n";
+                htmlresponse += "               </div> \n";
+                htmlresponse += "             </div> \n";
+                htmlresponse += "           </div> \n";                
+            }
+            htmlresponse += "             </div> \n";
+            htmlresponse += "             <div class='col-sm-8' style='margin-left:10px; min-height:800px;'> \n";
+            htmlresponse += "               <div class='card'> \n";
+            htmlresponse += "                 <div class='card-body'> \n";
+            htmlresponse += "                   <div class='form theme-form' id='product-edit-form-div'> \n";
+            htmlresponse += "                     <div class='row'> \n";
+            htmlresponse += "                       <div class='col'> \n";
+            htmlresponse += "                         <div class='text' style='text-align:center;'> \n";
+            htmlresponse += "                           Select a product to make changes \n";
+            htmlresponse += "                         </div> \n";
+            htmlresponse += "                       </div> \n";
+            htmlresponse += "                     </div> \n";
+            htmlresponse += "                   </div> \n";
+            htmlresponse += "                 </div> \n";
+            htmlresponse += "               </div> \n";
+            htmlresponse += "             </div> \n";
+            htmlresponse += "           </div> \n";
+            htmlresponse += "         </div> \n";
+            htmlresponse += "       </div> \n";
+            htmlresponse += "     </div> \n";            
+            htmlresponse += "   </div> \n";
+            htmlresponse += " </div> \n";
+        }
+        else {
+          htmlresponse += "<div class='col-12 col-md-6 no-redis-data-card'> \n";
+          htmlresponse += "  <div class='card'> \n";
+          htmlresponse += "    <div class='card-header border-t-danger'> \n";
+          htmlresponse += "      <h4>No Product Data Found</h4> \n";
+          htmlresponse += "      <p class='mt-1 f-m-light'>Looks like there's no product data in Postgres.</p> \n";
+          htmlresponse += "    </div> \n";
+          htmlresponse += "    <div class='card-body'> \n";
+          htmlresponse += "      <p class='mb-0'>You shouldn't be seeing this... may be a bug...</p> \n";
+          htmlresponse += "    </div> \n";
+          htmlresponse += "  </div> \n";
+          htmlresponse += "</div> \n";
+        }
+        return htmlresponse;
+      }
+
+      function render_pg_product_panel(prod_data) {
+        var htmlresponse = ""
+        if (debug) {console.log("--> [render_pg_product_panel] Rendering form for product: " + prod_data['id']);}
+        
+            htmlresponse += " <div class='form theme-form'> \n";
+            htmlresponse += "  <div class='row'>\n";
+            htmlresponse += "    <div class='col'>\n";
+            htmlresponse += "      <div class='mb-3'>\n";
+            htmlresponse += "        <label>Edit Product " + prod_data['id'] + "</label><br/><br/>\n";
+            htmlresponse += "        <img class='img-pg-list' src='" + prod_data['image_360x480'] + "' style='max-width:120px;align:left;'><br/> \n";
+            htmlresponse += "      </div>\n";
+            htmlresponse += "    </div>\n";
+            htmlresponse += "  </div>\n";
+            htmlresponse += "  <div class='row'>\n";
+            htmlresponse += "    <div class='col'>\n";
+            htmlresponse += "      <div class='mb-3'>\n";
+            htmlresponse += "        <label>Display Name</label>\n";
+            htmlresponse += "        <input class='form-control' type='text' id='productdisplayname' name='productdisplayname' value='" + prod_data['productdisplayname'] + "'>\n";
+            htmlresponse += "      </div>\n";
+            htmlresponse += "    </div>\n";
+            htmlresponse += "  </div>\n";
+            htmlresponse += "  <div class='row'>\n";
+            htmlresponse += "    <div class='col'>\n";
+            htmlresponse += "      <div class='mb-3'>\n";
+            htmlresponse += "        <label>Discounted Price</label>\n";
+            htmlresponse += "        <input class='form-control' type='text' id='discountedprice' name='discountedprice' value='" + prod_data['discountedprice'] + "'>\n";
+            htmlresponse += "      </div>\n";
+            htmlresponse += "    </div>\n";
+            htmlresponse += "  </div>\n";
+            htmlresponse += "  <div class='row'>\n";
+            htmlresponse += "    <div class='col'>\n";
+            htmlresponse += "      <div class='mb-3'>\n";
+            htmlresponse += "        <label>Regular Price</label>\n";
+            htmlresponse += "        <input class='form-control' type='text' id='price' name='price' value='" + prod_data['price'] + "'>\n";
+            htmlresponse += "      </div>\n";
+            htmlresponse += "    </div>\n";
+            htmlresponse += "  </div>\n";            
+            htmlresponse += "  <div class='row'>\n";
+            htmlresponse += "    <div class='col'>\n";
+            htmlresponse += "      <div class='mb-3'>\n";
+            htmlresponse += "        <label>Rating</label>\n";
+            htmlresponse += "        <input class='form-control' type='text' id='rating' name='rating' value='" + prod_data['rating'] + "'>\n";
+            htmlresponse += "      </div>\n";
+            htmlresponse += "    </div>\n";
+            htmlresponse += "  </div>\n";
+            htmlresponse += "  <div class='row'>\n";
+            htmlresponse += "    <div class='col'>\n";
+            htmlresponse += "      <div class='mb-3'>\n";
+            htmlresponse += "        <label>Article Type</label>\n";
+            htmlresponse += "        <input class='form-control' type='text' id='articletype' name='articletype' value='" + prod_data['articletype'] + "'>\n";
+            htmlresponse += "      </div>\n";
+            htmlresponse += "    </div>\n";
+            htmlresponse += "  </div>\n";
+            htmlresponse += "  <div class='row'>\n";
+            htmlresponse += "    <div class='col'>\n";
+            htmlresponse += "      <div class='mb-3'>\n";
+            htmlresponse += "        <label>Inventory Count</label>\n";
+            htmlresponse += "        <input class='form-control' type='text' id='inventorycount' name='inventorycount' value='" + prod_data['inventorycount'] + "'>\n";
+            htmlresponse += "      </div>\n";
+            htmlresponse += "    </div>\n";
+            htmlresponse += "  </div>\n";
+            htmlresponse += "  <div class='row'>\n";
+            htmlresponse += "    <div class='col'>\n";
+            htmlresponse += "      <div class='mb-3'>\n";
+            htmlresponse += "        <label>Product Description (HTML)</label>\n";
+            htmlresponse += "        <textarea class='form-control' id='productdescriptors' name='productdescriptors' rows='8'>" + prod_data['productdescriptors'] + "</textarea> \n";
+            htmlresponse += "      </div>\n";
+            htmlresponse += "    </div>\n";
+            htmlresponse += "  </div>\n";
+            htmlresponse += "  <div class='row'>  \n";
+            htmlresponse += "    <div class='col-6'>  \n";
+            htmlresponse += "      <div class='text-start'>  \n";
+            htmlresponse += "        <a class='btn btn-success me-3' href='#' onClick='update_pg_product(\"" + prod_data['id'] + "\")'>Save</a>  \n";
+            htmlresponse += "      </div>  \n";
+            htmlresponse += "    </div>  \n";
+            htmlresponse += "    <div class='col-6'>  \n";
+            htmlresponse += "      <div class='text-center'>  \n";
+            htmlresponse += "        <a href='#' id='savesuccess' class='badge badge-success' style='display:none;'>Success!</a>  \n";
+            htmlresponse += "      </div>  \n";
+            htmlresponse += "    </div>  \n";            
+            htmlresponse += "  </div>\n";
+            htmlresponse += "  \n";
+
+        return htmlresponse;
+      }
+
+      function render_search_list(search_list) {
+        if (debug) {console.log("--> [search_list] Total Search History items retrieved: " + search_list.length);}
+        var htmlresponse = ""
+        htmlresponse += "<button class='btn dropdown-toggle recent-search-bar' type='button' data-bs-toggle='dropdown' aria-expanded='false'> \n";
+        htmlresponse += "Recent Searches</button> \n";
+        htmlresponse += "<ul class='dropdown-menu dropdown-block'> \n";
+
+          if (search_list.length > 0) {
+            for (let i = 0; i < search_list.length; i++) {
+              search_item = search_list[i];
+              var date = new Date(search_item.search_ts);
+              var search_ts = date.toLocaleDateString();
+              htmlresponse += " <li> \n";
+              htmlresponse += "   <a class='dropdown-item' href='#' onclick=\"executeSearch('" + search_item.term + "')\">";
+              htmlresponse += " (" + search_ts + ") &nbsp;";
+              htmlresponse += " " + search_item.term +"";
+              htmlresponse += "   </a>\n";
+              htmlresponse += " </li>\n";
+            }        
+          }
+          else {
+            htmlresponse += " <li class='list-group-item txt-primary fw-bold'> \n";
+            htmlresponse += "   <span> No Search History Found </span> \n";
+            htmlresponse += " </li> \n";
+          }
+
+        htmlresponse += " </ul> \n";
+        return htmlresponse;
+      }
+
+      async function get_pg_product_list() {
+          if (debug) {console.log("--> [get_pg_product_list] Loading Product List");}
+          var serverurl = "http://{{hostname}}:{{port}}/pg_products";
+          var data = 'numprods=10';
+
+          let request = new XMLHttpRequest();
+          request.open("POST", serverurl);
+          request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          request.send(data);
+          request.onload = () => {
+              var responseStatus = request.status;
+              if (debug) {console.log("--> [get_pg_product_list] Response status: " + responseStatus);}
+              if (responseStatus == 200) { 
+                //Update content
+                var response = JSON.parse(request.response);
+                var total_docs = response[0];
+                var product_list = response[1];
+                
+                var product_count = "Postgres: " + total_docs['pg'] + " Products";
+                $("#postgres-key-count").html(product_count);
+
+                var producthtml = render_pg_product_list(product_list);
+                $("#product-grid-div").html(producthtml);
+              }
+          }
+          return "DONE"
+      }
+
+      function executeSearch(query_string) {
+        if (debug) {console.log("--> [executeSearch] Running Product Search from Search History List: " + query_string);}
+        $("#search-input").val(query_string);
+          var serverurl = "http://{{hostname}}:{{port}}/search"
+          var data = 'query_string=' + query_string;
+  
+          let request = new XMLHttpRequest();
+          request.open("POST", serverurl);
+          request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          request.send(data);
+          request.onload = () => {
+              var responseStatus = request.status;
+              if (debug) {console.log("--> [executeSearch] Product Search Response status: " + responseStatus);}
+              if (responseStatus == 200) { 
+                var producthtml = render_pg_product_list(JSON.parse(request.response));
+                $("#product-grid-div").html(producthtml);
+              }
+          }
+      }
+
+      function update_pg_product(prod_id) {
+          if (debug) {console.log("--> [update_pg_product] Updating Product Data for prod_id: " + prod_id);}
+          var serverurl = "http://{{hostname}}:{{port}}/pg_update_prod";
+          var productdisplayname = $("#productdisplayname").val();
+          var discountedprice = $("#discountedprice").val();
+          var price = $("#price").val();
+          var rating = $("#rating").val();
+          var articletype = $("#articletype").val();
+          var productdescriptors = $("#productdescriptors").val();
+          var inventorycount = $("#inventorycount").val();
+          var data = 'prod_id=' + prod_id + '&productdisplayname=' + productdisplayname + '&discountedprice=' + discountedprice + '&price=' + price + '&rating=' + rating + '&articletype=' + articletype + '&productdescriptors=' + productdescriptors + '&inventorycount=' + inventorycount;
+  
+          let request = new XMLHttpRequest();
+          request.open("POST", serverurl);
+          request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          request.send(data);
+          request.onload = () => {
+              var responseStatus = request.status;
+              if (debug) {console.log("--> [update_pg_product] Product Data Response status: " + responseStatus);}
+              if (responseStatus == 200) { 
+                if(request.response == 'success') {
+                    $("#savesuccess").show();
+                }
+              }
+          }
+      }
+
+      function load_product_panel(prod_id) {
+        if (debug) {console.log("--> [load_product_panel] Loading Product Panel for prod_id: " + prod_id);}
+          $("#savesuccess").hide();
+          var serverurl = "http://{{hostname}}:{{port}}/pg_prod_data";
+          var data = 'prod_id=' + prod_id;
+  
+          let request = new XMLHttpRequest();
+          request.open("POST", serverurl);
+          request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          request.send(data);
+          request.onload = () => {
+              var responseStatus = request.status;
+              if (debug) {console.log("--> [load_product_panel] Product Data Response status: " + responseStatus);}
+              if (responseStatus == 200) { 
+                var producthtml = render_pg_product_panel(JSON.parse(request.response));
+                $("#product-edit-form-div").html(producthtml);
+              }
+          }
+      }      
+
+      async function process_page(hostname, port) {
+        
+        //console.log("--> Loading User Session");
+        const session_data = await get_user_session();
+
+        //console.log("--> Loading Product List");
+        const prod_list_status = await get_pg_product_list();
+
+      }
+
+      $(document).ready(function() {
+
+        process_page(hostname, port);
+
+        // Load autocomplete script
+        autocomplete(document.getElementById("search-input"), "{{hostname}}","{{port}}");
+      });
+
+    </script>
+  </body>
+</html>

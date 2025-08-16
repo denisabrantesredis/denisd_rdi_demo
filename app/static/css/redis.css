@@ -1,0 +1,191 @@
+:root {
+    --theme-deafult: #3C3C3C;
+}
+
+.login-card {
+    background: url(../images/login/bg_login.jpeg);
+}
+
+.floatingheader {
+    margin-left: -75px !important;
+    border-radius: 12px;
+}
+
+.special-Offer {
+    background-image: url(../images/dashboard/banner-card.png);
+}
+
+.special-Offer h4 {
+    color: #423e3e;
+}
+
+.special-Offer p {
+    color: #423e3e;
+}
+
+.ecommerce-banner {
+    background-image: url(../images/dashboard/home-banner.png);
+}
+
+.customizer-links {
+    top: 90% !important;
+}
+
+.customizer-contain {
+    width: 500px;
+    right: -500px;
+}
+
+.customizer-links.open {
+    right: 500px;
+}
+
+.right-msg .msg-img {
+    background-image: url(https://streamly.streamlit.app:443/~/+/media/af4f6547a2bed5f2155bcd7972b52f98441e3548ef0d1a0dca033dec.png);
+}
+
+.left-msg .msg-img {
+    background-image: url(../images/customizer/redis.png);
+    border-radius: 25px;
+    width: 35px !important;
+    height: 35px !important;
+}
+
+.redisbg {
+    background-image: url(../images/logo/sidebar_bg.png);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -3;
+}
+
+.sidebar-redis-bg-large {
+    background-image: url(../images/logo/sidebar_bg_large.png);
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+.source-code p{
+    font-family: 'Courier New', Courier, monospace;
+    color: #FFF !important;
+    text-transform: lowercase;
+    font-size: 16px;
+}
+
+.user-list{
+    background-color: transparent;
+    font-size: 14px;
+    color: #ccc !important;
+}
+
+.page-wrapper.compact-wrapper .page-header {
+    margin-left: 0px;
+}
+
+.review-counter {
+    top: 5px !important;
+    right: 10px !important;
+}
+
+
+
+
+/* Autocomplete */
+/* .autocomplete {
+    position: relative;
+    display: inline-block;
+  }
+  input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+  } */
+  /* input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+  }
+  input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+  } */
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+  }
+  .autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+  }
+  .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+  }
+
+  .recent-search-bar {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    width: 100%;
+    text-align: left;
+    min-height: 50px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .customizer-links {
+    -webkit-box-shadow: unset !important;
+    box-shadow: unset !important;    
+  }
+
+.page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+    margin-left: 0px;
+}
+
+.redis-logo {
+  max-width: 35px;
+}
+
+.no-redis-data-card {
+    margin: 50px 0px 0px 30px;
+    max-width: 100% !important;
+    width: 850px !important;
+}
+
+.img-pg-list {
+    max-height: 180px;
+    margin: -10px auto 0px auto;
+    padding: 0px 0px 0px 50px;
+    text-align: center;
+}
+
+.pg-list-item {
+  padding: 15px;
+}
+
+.redis-refresh-toggle {
+    display: inline-flex !important;
+    padding: 0px !important;
+    background-color: transparent !important;
+    font-size: 12px !important;
+    margin: 5px 0px 0px 10px !important;
+}

@@ -46,4 +46,4 @@ if __name__ == '__main__':
     hostname = args.hostname
     port = args.port
     debug = (args.debug=="true")
-    app.run(debug=True, host=hostname, port=port)
+    app.run(debug=True, host='0.0.0.0', port=port)

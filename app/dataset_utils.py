@@ -412,6 +412,8 @@ def pg_create_database():
                 sql_statement = """ALTER USER redisuser WITH PASSWORD %(password)s"""
                 cursor.execute(sql_statement, {"password": "welcome1"})
                 
+                cursor.execute(sql.SQL('ALTER USER redisuser WITH SUPERUSER'))
+
                 cursor.execute(sql.SQL('GRANT ALL PRIVILEGES ON DATABASE {} TO redisuser').format(sql.Identifier(PG_DB)))
                 
                 conn.commit()

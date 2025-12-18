@@ -202,16 +202,16 @@ def run_search(user_query, search_type):
             vector=embedded_user_query,
             vector_field_name="vector",
             num_results=3,
-            return_fields=["track_id", "name", "composer", "album", "genre", "lyrics"],
+            return_fields=["track_id", "name", "composer", "album", "genre", "description"],
             return_score=True
         )
     else:
         vec_query = AggregateHybridQuery(
             text=user_query,
-            text_field_name="lyrics",
+            text_field_name="description",
             vector=embedded_user_query,
             vector_field_name="vector",
-            return_fields=["track_id", "name", "composer", "album", "genre", "lyrics"]
+            return_fields=["track_id", "name", "composer", "album", "genre", "description"]
         )
 
     result = index.query(vec_query)
@@ -220,7 +220,7 @@ def run_search(user_query, search_type):
 
 def get_answer(user_query, use_cache):
     used_cache = False
-    # check if question should be answered (lyrics vs aliens)
+    # check if question should be answered (description vs aliens)
     route_match = router(user_query, distance_threshold=0.7)
     # print(f"--> ROUTE: {route_match.json()}")
     if json.loads(route_match.json())['name'] != 'aliens':

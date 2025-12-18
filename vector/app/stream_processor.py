@@ -6,7 +6,7 @@ from redisvl.schema import IndexSchema
 from redisvl.index import SearchIndex
 from sentence_transformers import SentenceTransformer
 
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 
 import multiprocessing
@@ -66,7 +66,6 @@ def do_the_thing(i):
     consumer_name = f"consumer_{i}"
 
     # Gets env vars (.env file) from lyrics_extractor directory
-    GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
     REDIS_HOST = os.getenv("TARGET_DB_URL")
     REDIS_PORT = os.getenv("TARGET_DB_PORT")
     REDIS_PASSWORD = os.getenv("TARGET_DB_PASSWORD")
@@ -92,17 +91,16 @@ def do_the_thing(i):
     model = SentenceTransformer("redis/langcache-embed-v3")
 
     # LLM
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-2.0-flash",        # 2.0
-        # model="gemini-2.5-flash",      # 2.6
-        # model="gemini-2.5-flash-lite", # 2.6
-        # model="gemini-3-pro-preview",  # 12.0
-        temperature=0.1,
-        top_p=0.9,
-        top_k=32,
-        max_output_tokens=2048,
+    llm = ChatOpenAI(   
+        # model="gpt-4.1",
+        # model="gpt-5-mini",
+        # model="gpt-4o-mini",
+        # model="gpt-5-nano",
+        model="gpt-4.1-nano",    
+        temperature=0.5,
+        top_p=0.95,
+        max_tokens=2048
     )
-
 
     # Create Consumer Group
     try:
@@ -126,11 +124,14 @@ def do_the_thing(i):
                 try:
 
                     system_template = """
-                    You are a music expert.
-                    Your task is to provide lyrics to songs.
-                    In your response, include only the lyrics for the song.
-                    Provide the lyrics to the song, artist and album provided.
+                    You are a music expert, serving at an educational capacity.
+                    Your job is to help people understand what a song is about in terms of theme, message, etc.
+                    Provide a description of the song, the style, the genre, the type of energy this music transmits.
+                    You can also include snippets of the lyrics as appropriate.
+                    Write your response in a way that will help people find a song they are looking for.
+                    For instance, 'what is a good song for a workout', or 'what is a good calming song for end of the workday'.
                     If the value of song, album and artist is null, disregard the value and try to find the best response.
+                    Avoid any preambles in your response, like 'certainly', or 'happy to help'.
                     %SONG%
                     {song}
                     %ARTIST%
@@ -140,7 +141,7 @@ def do_the_thing(i):
                     """
                     messages = [
                         SystemMessage(content=system_template.format(song=track_name, artist=artist, album=album)),
-                        HumanMessage(content=f"please provide lyrics to song {track_name} by {artist}")
+                        HumanMessage(content=f"please describe song {track_name} by {artist}")
                     ]
 
                     llm_response = llm.invoke(messages)

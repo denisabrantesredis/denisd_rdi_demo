@@ -16,7 +16,7 @@ from redisvl.extensions.router import SemanticRouter
 from redisvl.extensions.llmcache import SemanticCache
 from redisvl.utils.vectorize import HFTextVectorizer
 
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from streamlit_extras.metric_cards import style_metric_cards
@@ -27,7 +27,6 @@ load_dotenv()
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 # Load environment variables
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 redis_host = os.getenv("TARGET_DB_URL")
 redis_port = os.getenv("TARGET_DB_PORT")
 redis_user = "default"
@@ -101,7 +100,7 @@ with input_panel:
         )
 
 
-st.title("Chinook Lyrics Finder™")
+st.title("Chinook Song Finder™")
 
 REDIS_URL = f"redis://default:{redis_pass}@{redis_host}:{redis_port}"
 r = redis.from_url(REDIS_URL, decode_responses=True)
@@ -147,15 +146,16 @@ router = SemanticRouter(
 )
 
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.0-flash",        # 2.0
-    # model="gemini-2.5-flash",      # 2.6
-    # model="gemini-2.5-flash-lite", # 2.6
-    # model="gemini-3-pro-preview",  # 12.0
-    temperature=0.1,
-    top_p=0.9,
-    top_k=32,
-    max_output_tokens=8192,
+# LLM
+llm = ChatOpenAI(   
+    # model="gpt-4.1",
+    # model="gpt-5-mini",
+    # model="gpt-4o-mini",
+    # model="gpt-5-nano",
+    model="gpt-4.1-nano",    
+    temperature=0.5,
+    top_p=0.95,
+    max_tokens=2048
 )
 
 llmcache = SemanticCache(
@@ -172,12 +172,14 @@ def ask_llm(query, text_list):
     timer_start = time.perf_counter()
     system_template = """
     You are a music expert.
-    Your task is to help users find the lyrics to the right songs.
-    Choose the most likely option based on the list of songs.
-    Keep your answer in line with the context provided.
-    Do not start the answer with a comment like 'based on the context provided'.
-    If none of the lyrics match the question, say you don't know.
-    In your response, include the entire lyrics for the song. Also, include the name of the band.
+    Your task is to help users find the right songs.
+    You will be given a list of songs, along with their descriptions.
+    Find the most appropriated song(s) based on the user's request.
+    You can reply with more than one song suggestion.
+    In your response, include the description, highlighting aspects that relate to the user's request.
+    Don't recommend songs outside of the ones you have received.
+    Include the Track ID in your response for each song.
+    If no songs match the request, respond with 'I do not know'.
     %CONTEXT%
     {context}
     """
@@ -200,7 +202,7 @@ def run_search(user_query, search_type):
             vector=embedded_user_query,
             vector_field_name="vector",
             num_results=3,
-            return_fields=["name", "composer", "album", "genre", "lyrics"],
+            return_fields=["track_id", "name", "composer", "album", "genre", "lyrics"],
             return_score=True
         )
     else:
@@ -209,30 +211,12 @@ def run_search(user_query, search_type):
             text_field_name="lyrics",
             vector=embedded_user_query,
             vector_field_name="vector",
-            return_fields=["name", "composer", "album", "genre", "lyrics"]
+            return_fields=["track_id", "name", "composer", "album", "genre", "lyrics"]
         )
 
     result = index.query(vec_query)
     return pd.DataFrame(result)   
 
-def run_hybrid_search(attribute, value, user_query):
-    
-    embedded_user_query = hf_vectorizer.embed(user_query)
-    
-    vec_query = VectorQuery(
-        vector=embedded_user_query,
-        vector_field_name="vector",
-        num_results=3,
-        return_fields=["name", "composer", "album"],
-        return_score=True
-    )
-
-    text_filter = Text(attribute) == value
-
-    vec_query.set_filter(text_filter)
-
-    result=index.query(vec_query)
-    return pd.DataFrame(result)
 
 def get_answer(user_query, use_cache):
     used_cache = False
@@ -258,7 +242,7 @@ def get_answer(user_query, use_cache):
 
         if not hasAnswer:
             timer_start = time.perf_counter()
-            result = run_search(user_query, "text")
+            result = run_search(user_query, "hybrid")
             timer_end = time.perf_counter()
             time_search = round(timer_end - timer_start, 4)                             
 

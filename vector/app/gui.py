@@ -107,18 +107,18 @@ r = redis.from_url(REDIS_URL, decode_responses=True)
 
 
 # Setup semantic router
-lyrics_route = Route(
-    name="lyrics",
+songs_route = Route(
+    name="songs",
     references=[
-        "what was that song about",
-        "what are the lyrics to this song",
-        "lyrics to song",
-        "song that goes like this", "song that goes",
+        "help me find a song about",
+        "what is a good song for this mood",
+        "recommend a song",
+        "music that makes me feel like",
         "song like", "song that looks like",
-        "help me find the lyrics to a song",
+        "great songs for",
         "lyrics", "song", "music"
     ],
-    metadata={"category": "lyrics", "priority": 1},
+    metadata={"category": "songs", "priority": 1},
     distance_threshold=0.8
 )
 
@@ -140,7 +140,7 @@ hf_vectorizer = HFTextVectorizer("redis/langcache-embed-v3")
 router = SemanticRouter(
     name="topic-router",
     vectorizer=hf_vectorizer,
-    routes=[lyrics_route, aliens_route],
+    routes=[songs_route, aliens_route],
     redis_url=REDIS_URL,
     overwrite=True
 )
@@ -155,18 +155,18 @@ llm = ChatOpenAI(
     model="gpt-4.1-nano",    
     temperature=0.5,
     top_p=0.95,
-    max_tokens=2048
+    max_tokens=4096
 )
 
 llmcache = SemanticCache(
-    name="lyricscache",    # underlying search index name
+    name="songscache",    # underlying search index name
     redis_url=REDIS_URL,      # redis connection url string
     distance_threshold=0.4,    # semantic cache distance threshold
     vectorizer=hf_vectorizer,
     overwrite=True
 )
 
-index = SearchIndex.from_existing("idx:lyrics", r)
+index = SearchIndex.from_existing("idx:tracks", r)
 
 def ask_llm(query, text_list):
     timer_start = time.perf_counter()
@@ -236,9 +236,9 @@ def get_answer(user_query, use_cache):
                 response = llm_response[0]['response']
                 hasAnswer = True
                 used_cache = True
-                print(f"--> Got response from cache! {response}")
             timer_end = time.perf_counter()
             llm_timer = round(timer_end - timer_start, 4)
+            print(f"--> Cache search matched {len(llm_response)} document(s)")
 
         if not hasAnswer:
             timer_start = time.perf_counter()
@@ -262,7 +262,7 @@ def get_answer(user_query, use_cache):
         return 0, 0, 0, 0, "As a Music Assistant Model, I should not be answering questions like this."
 
 def get_document_count():
-      info = r.ft("idx:lyrics").info()
+      info = r.ft("idx:tracks").info()
       return info['num_docs']
 
 

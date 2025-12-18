@@ -15,7 +15,7 @@ load_dotenv()
 
 def create_index(r):
     # Create Search Index
-    index_name = "idx:lyrics"
+    index_name = "idx:tracks"
 
     schema = IndexSchema.from_dict({
     "index": {
@@ -28,7 +28,7 @@ def create_index(r):
         {"name": "name", "type": "text"},
         {"name": "composer", "type": "text"},
         {"name": "band", "type": "text"},
-        {"name": "lyrics", "type": "text"},
+        {"name": "description", "type": "text"},
         {"name": "genre", "type": "text"},
         {"name": "album", "type": "text"},
         {
@@ -54,7 +54,7 @@ def create_index(r):
 
 def get_index_stats(r):
     try:
-        info = r.ft("idx:lyrics").info()
+        info = r.ft("idx:tracks").info()
         print(f"--> Indexed Percent: {info['percent_indexed']}")
         print(f"--> Number of Records: {info['num_records']}")
         return True
@@ -118,7 +118,7 @@ def do_the_thing(i):
             track_name = results[0][1][0][1]['name']
             album = results[0][1][0][1]['album'].replace("\"","")
             artist = results[0][1][0][1]['artist'].replace("\"","").replace("\\","")
-            print(f"--> Getting lyrics for track {track_id}: {track_name} ({artist}/{album})")
+            print(f"--> Getting description for track {track_id}: {track_name} ({artist}/{album})")
             if len(message_id) > 0:
                 # Get the lyrics
                 try:
@@ -145,14 +145,14 @@ def do_the_thing(i):
                     ]
 
                     llm_response = llm.invoke(messages)
-                    song_lyrics = llm_response.content
+                    song_description = llm_response.content
 
                     # Update Key in Redis
                     r.json().set(f"track:track_id:{track_id}", "$.band", artist)
-                    r.json().set(f"track:track_id:{track_id}", "$.lyrics", song_lyrics)
+                    r.json().set(f"track:track_id:{track_id}", "$.description", song_description)
 
                     # Create vector from the lyrics and save it to Redis
-                    lyrics_vector = model.encode([song_lyrics])[0].astype(np.float32).tolist()
+                    lyrics_vector = model.encode([song_description])[0].astype(np.float32).tolist()
                     r.json().set(f"track:track_id:{track_id}", "$.vector", lyrics_vector)
 
                     # Acknowledge Message
@@ -162,7 +162,7 @@ def do_the_thing(i):
                     print(f"--> Track {track_id} - Message {message_id} processed and acknowledged by consumer {consumer_name}.")
                 
                 except Exception as ex:
-                    print(f"--> Track {track_id} - LYRICS NOT FOUND {ex}")
+                    print(f"--> Track {track_id} - DESCRIPTION NOT FOUND {ex}")
 
 if __name__ == "__main__":
 
